@@ -14,14 +14,14 @@ public class LeakExample3 {
     public static void main(String[] args) {
         try {
             LeakExample3 m1 = new LeakExample3();
-            for (int j = 0; j < 100; j++) {
+            for (int j = 0; j < 100000; j++) {
                 for (int u = 0; u < 5000; u++) {
                     m1.leakMemory();
                     m1.curValue++;
                 }
 
                 System.out.println(m1.curValue);
-                Thread.currentThread().sleep(2000); // Wait 2 seconds
+                Thread.currentThread().sleep(1000); // Wait 2 seconds
             }
         } catch (Exception e) {
             e.printStackTrace();
